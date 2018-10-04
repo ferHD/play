@@ -115,7 +115,10 @@ async def play(ctx, *,url):
             await bot.say("Can not play live audio yet.")
         elif players[ctx.message.server.id].is_live == False:
             player.start()
+            await bot.say("Sonando")
+            playing[ctx.message.server.id] = True
 
+            
 
 @bot.command(pass_context=True)
 async def queue(con):
