@@ -104,7 +104,7 @@ async def play(ctx, *,url):
         song = await voice.create_ytdl_player(url, ytdl_options=opts, after=lambda: bot.loop.create_task(player_in(ctx)))
         songs[ctx.message.server.id]=[] #make a list 
         songs[ctx.message.server.id].append(song) #add song to queue
-        await bot.say("Audio {} is queued".format(song.title))
+        await bot.say("Audio`` {} ``is queued".format(song.title))
 
     if playing[ctx.message.server.id] == False:
         voice = bot.voice_client_in(ctx.message.server)
@@ -115,7 +115,7 @@ async def play(ctx, *,url):
             await bot.say("Can not play live audio yet.")
         elif players[ctx.message.server.id].is_live == False:
             player.start()
-            await bot.say("Now playing audio")
+            await bot.say("``Now playing audio``")
             playing[ctx.message.server.id] = True
 
 
